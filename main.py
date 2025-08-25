@@ -1,4 +1,4 @@
-#Initialisation
+# Initialization
 import discord
 from discord.ext import commands
 import logging
@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 import csv
 import os
 
-#Creating a list with all the swears from the CSV files given, possible to add if needed
+# Creating a list with all the swears from the CSV files given, possible to add if needed
 swears = []
 for filename in os.listdir('Swear/'):
     with open(os.path.join('Swear/', filename), newline='') as f:
@@ -25,11 +25,11 @@ intents.message_content = True
 intents.members = True
 intents.message_content = True
 
-#Choosing the prefix to use for the bot
+# Choosing the prefix to use for the bot
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 
-#Sending a message when the bot is ready to be used
+# Sending a message when the bot is ready to be used
 @bot.event
 async def on_ready():
     """
@@ -39,7 +39,7 @@ async def on_ready():
     print(f"Im ready, {bot.user.name}")
 
 
-#Welcoming message when a user joins the server
+# Welcoming message when a user joins the server
 @bot.event
 async def on_member_join(member):
     """
@@ -53,7 +53,7 @@ async def on_member_join(member):
     await member.send(f"Welcome {member.name} to the server {member.guild.name}!")
 
 
-#Goodbye message when a user leaves the server
+# Goodbye message when a user leaves the server
 @bot.event
 async def on_member_remove(member):
     """
@@ -65,7 +65,7 @@ async def on_member_remove(member):
     id = member.id
     await channel.send(f"{member.name} has left the server :'(")
 
-#Hello command
+# Hello command
 @bot.command()
 async def hello(ctx):
     """
@@ -78,7 +78,7 @@ async def hello(ctx):
         await ctx.message.delete()
         await ctx.send(f"Sorry {ctx.author.mention}, you cannot send messages in this channel, please do so in the <#1409527307239948410> channel.")
 
-#Clear command
+# Clear command
 @bot.command()
 async def clear(ctx, number: int):
     """
@@ -92,7 +92,7 @@ async def clear(ctx, number: int):
         await ctx.message.delete()
         await ctx.send(f"Sorry {ctx.author.mention}, you do not have permission to use this command.")
 
-#Profanity filter
+# Profanity filter
 @bot.event
 async def on_message(message):
     """
@@ -117,7 +117,7 @@ async def on_message(message):
                       
     await bot.process_commands(message)
 
-#Mute command
+# Mute command
 @bot.command()
 async def mute(ctx, member: discord.Member):
     """
@@ -140,7 +140,7 @@ async def mute(ctx, member: discord.Member):
     else:
         await ctx.send(f"Sorry {ctx.author.mention}, you do not have permission to use this command.")
 
-#Unmute command
+# Unmute command
 @bot.command()
 async def unmute(ctx, member: discord.Member):
     """
@@ -157,7 +157,7 @@ async def unmute(ctx, member: discord.Member):
     else:
         await ctx.send(f"Sorry {ctx.author.mention}, you do not have permission to use this command.")
 
-#Ban command
+# Ban command
 @bot.command()
 async def ban(ctx, member: discord.Member):
     """
@@ -172,7 +172,7 @@ async def ban(ctx, member: discord.Member):
     else:
         await ctx.send(f"Sorry {ctx.author.mention}, you do not have permission to use this command.")
 
-#Kick command
+# Kick command
 @bot.command()
 async def kick(ctx, member: discord.Member):
     """
@@ -185,5 +185,5 @@ async def kick(ctx, member: discord.Member):
     else:
         await ctx.send(f"Sorry {ctx.author.mention}, you do not have permission to use this command.")
 
-#Making the bot run with the token saw previously
+# Making the bot run with the token saw previously
 bot.run(token)
