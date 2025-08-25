@@ -19,6 +19,7 @@ load_dotenv()
 # Taking the token from the .env file to connect the bot
 token = os.getenv("DISCORD_TOKEN")
 
+#Intents are the options that you can enable, for more informations look at the bot's dashbord pannel on discord developer website
 handler = logging.FileHandler(filename='discord.log', encoding='utf-8', mode='w')
 intents = discord.Intents.default()
 intents.message_content = True
