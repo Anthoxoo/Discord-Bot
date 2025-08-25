@@ -5,7 +5,7 @@ This bot written in python can be improved in many ways and his function is more
 
 ## Installation
 
-Use the pip package manager to install the packages and don't forget to be inside the project folder or else you'll have to change de path.
+Use the pip package manager to install the packages and don't forget to be inside the project folder or else you'll have to change the path.
 ```bash
 pip install -r ./requierments.txt
 ```
