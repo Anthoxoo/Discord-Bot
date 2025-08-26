@@ -13,6 +13,7 @@ pip install -r ./requierments.txt
 
 ## Usage
 
+Profanity checker with the swears in many languages availables, you can look at the Swear folder for the languages.
 ```
 !help >>> Shows the help message, help <command> for more info about the command itself
 !hello >>> Says goodbye
