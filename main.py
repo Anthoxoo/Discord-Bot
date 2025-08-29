@@ -47,8 +47,8 @@ async def on_member_join(member):
     in : a member that joined
     out : Welcome message
     """
-    bonjour_aurevoir=1409526596905467925
-    channel=bot.get_channel(bonjour_aurevoir)
+    yourChannel=int("token of your channel")
+    channel=bot.get_channel(yourChannel)
 
     await channel.send(f"{member.name} has joined the server")
     await member.send(f"Welcome {member.name} to the server {member.guild.name}!")
@@ -61,8 +61,8 @@ async def on_member_remove(member):
     in : a member that left
     out : Goodbye message
     """
-    bonjour_aurevoir=1409526596905467925
-    channel=bot.get_channel(bonjour_aurevoir)
+    yourChannel=int("token of your channel")
+    channel=bot.get_channel(yourChannel)
     id = member.id
     await channel.send(f"{member.name} has left the server :'(")
 
@@ -73,7 +73,7 @@ async def hello(ctx):
     in : !hello
     out : Goodbye
     """
-    if ctx.channel.id == 1409527307239948410:  # id of the bot only channel
+    if ctx.channel.id == int("your bot only channel token"):  # id of the bot only channel
         await ctx.send("Goodbye")
     else:
         await ctx.message.delete()
